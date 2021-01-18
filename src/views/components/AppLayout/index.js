@@ -19,6 +19,7 @@ const Container = styled.div`
 const MainArea = styled.div`
   max-width: 93%;
   margin: 0 auto;
+  padding: 40px 0;
 `
 
 export default AppLayout;
