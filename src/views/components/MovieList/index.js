@@ -1,15 +1,24 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import MovieItem from "./movieItem";
+import {appActions} from "../../../redux/actionCreators";
+import {useSelector} from "react-redux";
+import store from "../../../redux/store";
 
 function MovieList(props) {
     const {
         itemlistTitle
     } = props;
 
+    useEffect(() => {
+        appActions.getMovies();
+    }, []);
+
+    const state = useSelector(state => state.app.movies);
+
     return (
         <List>
-            <h2>{itemlistTitle}</h2>
+            <h2 onClick={()=> console.log('@@ state',state)}>{itemlistTitle}</h2>
             <MovieItem />
         </List>
     )

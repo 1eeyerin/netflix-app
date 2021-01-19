@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = {
-    getUsers: () => axios.get("https://jsonplaceholder.typicode.com/users")
+    getMovies: () => axios.get("https://yts.mx/api/v2/list_movies.json?limit=50")
 }
 
 export default API;

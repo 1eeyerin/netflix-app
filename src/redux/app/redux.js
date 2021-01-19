@@ -6,12 +6,16 @@ const initialState = {
 //action
 const Action = {
     Types: {
-        UPDATE_STATE: "@@APP/UPDATE_STATE"
+        UPDATE_STATE: "@@APP/UPDATE_STATE",
+        GET_MOVIES: "@@/APP/GET_MOVIES"
     },
     Creators: {
         updateState: (props) => ({
             type: Action.Types.UPDATE_STATE,
             payload: props
+        }),
+        getMovies: () => ({
+            type:Action.Types.GET_MOVIES,
         })
     }
 }
