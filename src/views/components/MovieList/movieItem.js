@@ -1,50 +1,43 @@
-import React from "react";
-import styled from "styled-components";
+import React, {useEffect} from "react";
+import {appActions} from "../../../redux/actionCreators";
+import {useSelector} from "react-redux";
+import {Item, ItemImage, ItemIMG, ItemTitle, MovieListItem} from "./movieItem.Styled";
+import {Link} from "react-router-dom";
 
-function MovieItem() {
+function MovieItem(props) {
+    const {
+        genres
+    } = props;
+
+    useEffect(() => {
+        appActions.getMovies();
+    }, []);
+
+    const {
+        movie = []
+    } = useSelector(state => state?.app);
+
+    const item = movie.filter((i) => i.genres.indexOf(genres) !== -1);
+
     return (
         <Item>
-            <MovieListItem>
-                <ItemImage></ItemImage>
-                <ItemTitle>테스트</ItemTitle>
-            </MovieListItem>
-            <MovieListItem>
-                <ItemImage></ItemImage>
-                <ItemTitle>테스트</ItemTitle>
-            </MovieListItem>
-            <MovieListItem>
-                <ItemImage></ItemImage>
-                <ItemTitle>테스트</ItemTitle>
-            </MovieListItem>
-            <MovieListItem>
-                <ItemImage></ItemImage>
-                <ItemTitle>테스트</ItemTitle>
-            </MovieListItem>
-            <MovieListItem>
-                <ItemImage></ItemImage>
-                <ItemTitle>테스트</ItemTitle>
-            </MovieListItem>
+            {
+                item.map((i) => {
+                    return (
+                        <Link to={`/detail/${i.id}`}>
+                            <MovieListItem key={i.id}>
+                                <ItemImage>
+                                    <ItemIMG src={i.large_cover_image} alt={i.title} />
+                                </ItemImage>
+                                <ItemTitle>{i.title}</ItemTitle>
+                            </MovieListItem>
+                        </Link>
+                    )
+                })
+            }
         </Item>
     )
 }
-const Item = styled.div`
-  display: flex;
-  margin-top: 10px;
-`
-const MovieListItem = styled.div`
-  width: 250px;
-  + div {
-    margin-left: 10px;
-  }
-`
-const ItemImage = styled.div`
-  height: 120px;
-  background: #aaaaaa;
-`
-const ItemTitle = styled.h3`
-  color: inherit;
-  margin-top: 5px;
-  font-size: 14px;
-`
+
 
 export default MovieItem;

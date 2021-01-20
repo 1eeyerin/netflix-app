@@ -13,6 +13,7 @@ function App(){
             <AppLayout>
                 <Switch>
                     <Route exact path={"/"} component={Home}/>
+                    <Route path={"/detail/:id"} component={Genre}/>
                     <Route path={"/genre"} component={Genre}/>
                     <Route path={"/my-list"} component={MyList}/>
                     <Route path={"/Search"} component={Search}/>
@@ -20,6 +21,6 @@ function App(){
             </AppLayout>
         </>
     )
-}
+}s
 
 export default App;
