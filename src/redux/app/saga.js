@@ -11,6 +11,7 @@ export default function* (){
                     movie: result.data.data.movies
                 }))
             }
-        })
+        }),
+
     ])
 }

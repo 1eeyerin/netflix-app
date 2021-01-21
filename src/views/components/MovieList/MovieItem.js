@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {appActions} from "../../../redux/actionCreators";
 import {useSelector} from "react-redux";
-import {Item, ItemImage, ItemIMG, ItemTitle, MovieListItem} from "./movieItem.Styled";
+import {Item, ItemImage, ItemIMG, ItemTitle, MovieListItem} from "./MovieItem.Styled";
 import {Link} from "react-router-dom";
 
 function MovieItem(props) {
@@ -24,14 +24,14 @@ function MovieItem(props) {
             {
                 item.map((i) => {
                     return (
-                        <Link to={`/detail/${i.id}`}>
-                            <MovieListItem key={i.id}>
+                        <MovieListItem key={i.id}>
+                            <Link to={`/detail/${i.id}`}>
                                 <ItemImage>
-                                    <ItemIMG src={i.large_cover_image} alt={i.title} />
+                                    <ItemIMG src={i.large_cover_image} alt={i.title}/>
                                 </ItemImage>
                                 <ItemTitle>{i.title}</ItemTitle>
-                            </MovieListItem>
-                        </Link>
+                            </Link>
+                        </MovieListItem>
                     )
                 })
             }

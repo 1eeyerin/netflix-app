@@ -1,13 +1,14 @@
 //initialState
 const initialState = {
-    openSidebar : false
+    openSidebar : false,
+    pageLoading : false
 }
 
 //action
 const Action = {
     Types: {
         UPDATE_STATE: "@@APP/UPDATE_STATE",
-        GET_MOVIES: "@@APP/GET_MOVIES"
+        GET_MOVIES: "@@APP/GET_MOVIES",
     },
     Creators: {
         updateState: (props) => ({

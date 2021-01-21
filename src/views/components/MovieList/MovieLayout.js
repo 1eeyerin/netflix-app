@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import MovieItem from "./movieItem";
+import MovieItem from "./MovieItem";
 
 function MovieLayout(props){
     const {
