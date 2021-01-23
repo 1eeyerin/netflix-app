@@ -12,12 +12,15 @@ export const HeaderWrap = styled.div`
   width: 93%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   h1 {
     margin-right: 10px;
     color: #c30000;
     font-weight: 500;
     font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
   }
 
   ul {
@@ -29,4 +32,10 @@ export const HeaderWrap = styled.div`
       padding: 0 20px;
     }
   }
+`
+export const HeaderLeft = styled.div`
+  display: flex;
+  align-content: center;
+`
+export const HeaderRight = styled.div`
 `

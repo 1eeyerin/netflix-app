@@ -4,10 +4,11 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./views/pages/Home";
 import Detail from "./views/pages/Detail";
 import Genre from "./views/pages/Genre";
-import MyList from "./views/pages/MyList";
+import MyList from "./views/pages/Member/MyList";
 import Search from "./views/pages/Search";
 import {useSelector} from "react-redux";
 import {appActions} from "./redux/actionCreators";
+import Member from "./views/pages/Member";
 
 function App(){
 
@@ -30,8 +31,8 @@ function App(){
                     <Route exact path={"/"} component={Home}/>
                     <Route path={"/detail/:id"} component={Detail}/>
                     <Route path={"/genre"} component={Genre}/>
-                    <Route path={"/my-list"} component={MyList}/>
-                    <Route path={"/Search"} component={Search}/>
+                    <Route path={"/search"} component={Search}/>
+                    <Route exact path={"/member"} component={Member}/>
                 </Switch>
             </AppLayout>
         </>

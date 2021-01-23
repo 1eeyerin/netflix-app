@@ -1,6 +1,25 @@
 //initialState
 const initialState = {
-    name : null
+    //더미데이터, 데이터 양식
+    User : {
+        id: 1,
+        MyList: [],
+        SearchList: [],
+        profileImage: "",
+        nickname: "",
+    },
+    LoginData: {
+        id: "",
+        password: "",
+        nickname: "",
+    },
+    signUpData: {
+        id: "",
+        password: "",
+        nickname: "",
+        email: "",
+    },
+    isLoggedIn: false,
 }
 
 //action
