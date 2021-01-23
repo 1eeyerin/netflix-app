@@ -1,14 +1,8 @@
-import React, {useEffect} from "react";
-import {appActions} from "../../../redux/actionCreators";
+import React from "react";
 import {MainArea} from "../../components/AppLayout/AppLayout.Styled";
 import MovieList from "../../components/MovieList";
 
 function Home() {
-
-    useEffect(() => {
-        appActions.getMovies();
-    }, []);
-
 
     return (
         <MainArea>

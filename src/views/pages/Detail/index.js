@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import {MainArea} from "../../components/AppLayout/AppLayout.Styled";
 import {useSelector} from "react-redux";
-import {appActions} from "../../../redux/actionCreators";
 import MovieDetail from "./MovieDetail";
 
 function Detail(props){
@@ -16,14 +15,8 @@ function Detail(props){
 
     const [post, setPost] = useState({});
     const [otherPost, setOtherPost] = useState({});
-    const id = Number(match.params.id);
 
-    useEffect(() => {
-        if(!movie.length){
-            console.log('@@ detail page : start getMovies action');
-            appActions.getMovies();
-        }
-    }, []);
+    const id = Number(match.params.id);
 
     useEffect(() => {
         const postResult = movie.length && movie.find((i) => id === i.id);
@@ -54,6 +47,7 @@ const Container = styled.div`
   position: relative;
   min-height: 100vh;
   background: #202020 ${(props) => props.background && `url(${props.background})`} no-repeat center top /cover;
+  transition: background-image 0.5s .1s;
   &:before {
     content: '';
     width: 100%;
