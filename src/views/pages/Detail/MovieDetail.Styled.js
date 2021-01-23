@@ -64,7 +64,7 @@ export const OtherMovies = styled.div`
   padding: 35px 25px;
   box-sizing: border-box;
   h3 {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 `
 export const OtherMovieList = styled.div`

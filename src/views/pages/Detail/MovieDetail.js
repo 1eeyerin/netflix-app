@@ -26,8 +26,8 @@ function MovieDetail(props){
                     <Genre>
                         장르 :
                         {
-                            post.genres && post.genres.map((i) => {
-                                return <Genres>{i}</Genres>
+                            post.genres && post.genres.map((i,idx) => {
+                                return <Genres key={idx}>{i}</Genres>
                             })
                         }
                     </Genre>

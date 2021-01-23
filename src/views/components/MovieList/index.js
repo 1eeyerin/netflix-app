@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {useSelector} from "react-redux";
 import MovieItem from "./MovieItem";
 import styled from "styled-components";
@@ -13,13 +13,13 @@ function MovieList(props) {
         movie = []
     } = useSelector(state => state?.app);
 
-    const item = movie.filter((i) => i.genres.indexOf(genres) !== -1);
+    const result = movie.filter((i) => i.genres.indexOf(genres) !== -1);
 
 
     return(
         <List>
             <h2>{itemlistTitle}</h2>
-            <MovieItem item={item} />
+            <MovieItem item={result} />
         </List>
     )
 }
