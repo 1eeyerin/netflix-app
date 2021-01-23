@@ -5,7 +5,8 @@
 html,body{width:100%;height:100%; font-size:62.5%;}
 html{overflow-y:scroll; font-family:'Noto Sans KR', '나눔고딕', 'NanumGothic', 'Nanum Gothic', '돋움', dotum, sans-serif; -webkit-font-smoothing: antialiased;}
 body{*word-break:break-all;-ms-word-break:break-all;font-family:'Noto Sans KR', '나눔고딕', 'NanumGothic', 'Nanum Gothic', '돋움', dotum, sans-serif;-webkit-text-size-adjust: 100% !important;-moz-text-size-adjust: 100% !important;-ms-text-size-adjust: 100% !important;}
-body,h1,h2,h3,h4,h5,h6,th,td,input,textarea,select,option{color:#555;font-family:'Noto Sans KR', '나눔고딕', 'NanumGothic', 'Nanum Gothic', '돋움',dotum,sans-serif;font-weight:normal}
+body,h1,h2,h3,h4,h5,h6,th,td,input,textarea,select,option{color:#555;font-family:'Noto Sans KR', '나눔고딕', 'NanumGothic', 'Nanum Gothic', '돋움',dotum,sans-serif;font-weight:normal;color:inherit;
+  font-size: inherit;}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section,svg {display: block;}
 table {border-collapse: collapse; border-spacing: 0;}
 img,fieldset,iframe{border:0 none}
@@ -39,16 +40,6 @@ sub {font-size:10px;}
 .e_{overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:1;-webkit-box-orient:vertical;word-wrap:break-word;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box}
 input[type="password"] {font: large Verdana,sans-serif !important;}
 .pointer_off {pointer-events: none;}
-/* module --------------------------------------------------------------------------------------------------------------------*/
-/* -------- 수정시 재선언하시거나 해당 클래스명을 지워주세요 -------- */
-/* con */
-[class*="con-"][class*="-width1"]{width: 93%;max-width:1360px;margin:0 auto;}
-[class*="con-"][class*="-width2"]{width: 93%;margin:0 auto;}
-
-/* lang ko en */
-#container [lang="ko"]{font-family:'Noto Sans KR', '나눔고딕', 'NanumGothic', 'Nanum Gothic', '돋움', dotum, sans-serif !important;}
-#container [lang="en"]{font-family:'Montserrat', sans-serif !important;}
-/* module --------------------------------------------------------------------------------------------------------------------*/
 
 /* container */
 #wrap, #container {width:100%;position: relative;min-width: 320px;overflow:hidden;}
@@ -63,8 +54,3 @@ input[type="password"] {font: large Verdana,sans-serif !important;}
 .pop_today_close{padding:1px 7px 3px 7px;color:#ffffff;background:#303030;vertical-align:middle;border:0px;}
 .pop_close{padding:1px 7px 3px 7px;color:#ffffff;background:#303030;vertical-align:middle;border:0px;}
 .msg_sound_only, .sound_only {display:inline-block !important;position:absolute;top:0;left:0;margin:0 !important;padding:0 !important;font-size:0;line-height:0;border:0 !important;overflow:hidden !important}
-
-@media (max-width: 1279px) {
-}
-@media (max-width: 767px) {
-}

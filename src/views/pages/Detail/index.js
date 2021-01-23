@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {MainArea} from "../../components/AppLayout/AppLayout.Styled";
 import {useSelector} from "react-redux";
 import {appActions} from "../../../redux/actionCreators";
-import Info from "./Info";
+import MovieDetail from "./MovieDetail";
 
 function Detail(props){
     const {
@@ -15,6 +15,7 @@ function Detail(props){
     } = useSelector(state => state?.app);
 
     const [post, setPost] = useState({});
+    const [otherPost, setOtherPost] = useState({});
     const id = Number(match.params.id);
 
     useEffect(() => {
@@ -25,15 +26,25 @@ function Detail(props){
     }, []);
 
     useEffect(() => {
-        const result = movie.length && movie.find((i) => id === i.id);
-        setPost(result);
-    }, [movie]);
+        const postResult = movie.length && movie.find((i) => id === i.id);
+        setPost(postResult);
+    }, [movie, id]);
+
+    useEffect(() => {
+        const genreArr = post.genres;
+        const otherPostResult = genreArr && movie.filter((item) => {
+            for(let i=0; i<genreArr.length; i++){
+                if(item.genres.indexOf(genreArr[i]) !== -1) return true;
+            }
+        });
+        setOtherPost(otherPostResult);
+    }, [post]);
 
 
     return(
         <Container background={post.background_image_original}>
             <MainAreaStyled>
-                <Info post={post}/>
+                <MovieDetail post={post} otherPost={otherPost} />
             </MainAreaStyled>
         </Container>
     )

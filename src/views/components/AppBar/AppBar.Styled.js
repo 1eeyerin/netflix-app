@@ -18,7 +18,6 @@ export const HeaderWrap = styled.div`
     color: #c30000;
     font-weight: 500;
     font-family: 'Montserrat', sans-serif;
-    font-size: inherit;
   }
 
   ul {

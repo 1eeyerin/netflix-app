@@ -1,12 +1,14 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import {
     Description, Genre, Genres, ItemGroup, ItemImage,
-    ItemIMG, ItemInfo, MovieInfo, Rating, Runtime, Title
-} from "./Info.Styled";
+    ItemIMG, ItemInfo, MovieInfo, OtherMovieList, OtherMovies, Rating, Runtime, Title, Year
+} from "./MovieDetail.Styled";
+import MovieItem from "../../components/MovieList/MovieItem";
 
-function Info(props){
+function MovieDetail(props){
     const {
-        post
+        post,
+        otherPost
     } = props;
 
     return(
@@ -15,10 +17,11 @@ function Info(props){
                 <ItemImage><ItemIMG src={post.medium_cover_image} alt=""/></ItemImage>
                 <ItemInfo>
                     <Title>{post.title_long}</Title>
-                    <div>{post.year}</div>
+                    <Year>{post.year}</Year>
                     <Rating>
                         별점 : ⭐{post.rating}
                     </Rating>
+                    <Description>{post.description_full}</Description>
                     <Runtime>전체 : {post.runtime}분</Runtime>
                     <Genre>
                         장르 :
@@ -28,7 +31,16 @@ function Info(props){
                             })
                         }
                     </Genre>
-                    <Description>{post.description_full}</Description>
+                    <OtherMovies>
+                        <h3>{post.title} 와 비슷한 작품</h3>
+                        {
+                            otherPost &&
+                            typeof(otherPost) !== undefined && otherPost.length &&
+                            <MovieItem item={otherPost} />
+                        }
+                        <OtherMovieList>
+                        </OtherMovieList>
+                    </OtherMovies>
                 </ItemInfo>
             </ItemGroup>
         </MovieInfo>
@@ -36,4 +48,4 @@ function Info(props){
 }
 
 
-export default Info;
+export default MovieDetail;

@@ -27,7 +27,6 @@ export const ItemIMG = styled.img`
 `
 
 export const ItemTitle = styled.h3`
-  color: inherit;
   margin-top: 5px;
   font-size: 14px;
 `
