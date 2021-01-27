@@ -1,16 +1,18 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Noto+Sans+KR:wght@400;500&display=swap');
 
 *{margin:0;padding:0}
 html,body{width:100%;height:100%; font-size:62.5%;}
-html{overflow-y:scroll; font-family:'Noto Sans KR', '나눔고딕', 'NanumGothic', 'Nanum Gothic', '돋움', dotum, sans-serif; -webkit-font-smoothing: antialiased;}
-body{*word-break:break-all;-ms-word-break:break-all;font-family:'Noto Sans KR', '나눔고딕', 'NanumGothic', 'Nanum Gothic', '돋움', dotum, sans-serif;-webkit-text-size-adjust: 100% !important;-moz-text-size-adjust: 100% !important;-ms-text-size-adjust: 100% !important;}
+html{overflow-y:scroll;}
+body{*word-break:break-all;-ms-word-break:break-all;-webkit-text-size-adjust: 100% !important;-moz-text-size-adjust: 100% !important;-ms-text-size-adjust: 100% !important;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, pre, a, address, code, em, img, small, strike, strong, sub, sup, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup,
+menu, nav, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; font: inherit; vertical-align: baseline; font-family:'Noto Sans KR', '나눔고딕', 'NanumGothic', 'Nanum Gothic', '돋움', dotum, sans-serif;}
 body,h1,h2,h3,h4,h5,h6,th,td,input,textarea,select,option{color:#555;font-family:'Noto Sans KR', '나눔고딕', 'NanumGothic', 'Nanum Gothic', '돋움',dotum,sans-serif;font-weight:normal;color:inherit;
   font-size: inherit;}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section,svg {display: block;}
 table {border-collapse: collapse; border-spacing: 0;}
 img,fieldset,iframe{border:0 none}
-ul,ol,li{list-style:none}
+ul,ol,li{list-style:none;}
 em,address{font-style:normal}
 img,input,select,textarea{vertical-align:middle}
 input{-webkit-appearance: none; -webkit-border-radius: 0;}
@@ -24,7 +26,7 @@ option{padding-right:6px}
 textarea{overflow:auto;*margin:-1px 0;padding-right:1px}
 .blind, legend, caption{position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px); clip: rect(1px, 1px, 1px, 1px);}
 blockquote, q {quotes: none;}
-blockquote:before, blockquote:after, q:before, q:after {content: '';content: none;}
+blockquote:before, blockquote:after, q:before, q:after {content: "";content: none;}
 hr{display:none}
 legend{*width:0}
 :root legend{margin-top:-1px;font-size:0;line-height:0}
@@ -38,12 +40,8 @@ sub {font-size:10px;}
 #skip-nav {font-size: 16px;line-height: 40px;position: fixed;z-index: 100000;top: -40px;left: 0;width: 100%;-webkit-transition: .4s;transition: .4s;text-align: center;color: #fff;background: rgba(0,0,0,.6);}
 #skip-nav:focus{top:0}
 .e_{overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:1;-webkit-box-orient:vertical;word-wrap:break-word;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box}
-input[type="password"] {font: large Verdana,sans-serif !important;}
-.pointer_off {pointer-events: none;}
 
-/* container */
-#wrap, #container {width:100%;position: relative;min-width: 320px;overflow:hidden;}
-#contents {position:relative;}
+/* input[type="password"] {font: large Verdana,sans-serif !important;} */
 
 /* video popup */
 #video-popup{display:none;position:fixed;top:50%;left:50%;z-index:2000;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}

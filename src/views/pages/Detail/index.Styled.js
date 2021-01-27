@@ -4,7 +4,7 @@ import {MainArea} from "../../components/AppLayout/AppLayout.Styled";
 export const DetailGroup = styled.div`
   position: relative;
   min-height: 100vh;
-  background: #202020 ${(props) => props.background && `url(${props.background})`} no-repeat center top /cover;
+  background: #202020 ${(props) => props.background && `url(${props.background})`} no-repeat center top /cover fixed;
   transition: background-image 0.5s .1s;
   &:before {
     content: '';

@@ -8,6 +8,7 @@ const size = {
 }
 
 const theme = {
+    mainColor : '#c30000',
     mobile : `screen and (max-width:${size.mobile})`,
     tablet : `screen and (min-width:${size.tabletStart}) and (max-width:${size.tabletEnd})`,
     laptop : `screen and (min-width:${size.laptopStart}) and (max-width:${size.laptopEnd})`,

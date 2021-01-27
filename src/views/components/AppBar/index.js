@@ -18,6 +18,7 @@ function AppBar() {
                 <HeaderRight>
                     <ul>
                         <li><Link to="/member/profile">profile</Link></li>
+                        <li><Link to="/member/join">join</Link></li>
                         <li><Link to="/member/login">login</Link></li>
                     </ul>
                 </HeaderRight>

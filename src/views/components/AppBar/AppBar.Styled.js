@@ -16,7 +16,7 @@ export const HeaderWrap = styled.div`
 
   h1 {
     margin-right: 10px;
-    color: #c30000;
+    color: ${(props) => props.theme.mainColor};
     font-weight: 500;
     font-family: 'Montserrat', sans-serif;
     display: flex;
