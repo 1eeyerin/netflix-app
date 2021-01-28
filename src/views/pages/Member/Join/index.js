@@ -1,20 +1,20 @@
 import React, {useState, useEffect} from "react";
 import {Form, Button, Input} from 'antd';
 import {FormErrorMessage, FormStyled, JoinGroup} from "./index.Styled";
-import useForm from "../../../hooks/useForm";
+import useForm from "../../../../hooks/useForm";
 
 
 function Join() {
 
     const [userInfo, setUserInfo] = useState({});
-    const [submitError, setSubmitError] = useState({});
-    const [onChange, handleSubmit] = useForm(userInfo, setUserInfo, submitError, setSubmitError);
+    const [infoError, setInfoError] = useState({});
+    const [onChange, handleSubmit] = useForm(userInfo, setUserInfo, infoError, setInfoError);
 
     useEffect(() => {
 
-        console.log('@@ error',submitError);
+        console.log('@@ error',infoError);
 
-    }, [userInfo, submitError]);
+    }, [userInfo, infoError]);
 
     return (
         <JoinGroup>
@@ -28,7 +28,7 @@ function Join() {
                         onChange={(e) => onChange(e)}
                     />
                 </Form.Item>
-                {!userInfo.id && <FormErrorMessage>Please input your name</FormErrorMessage>}
+                {infoError.id && <FormErrorMessage>{infoError.id}</FormErrorMessage>}
 
                 <Form.Item name="password">
                     <Input.Password
@@ -40,6 +40,8 @@ function Join() {
                     />
                 </Form.Item>
 
+                {infoError.password && <FormErrorMessage>{infoError.password}</FormErrorMessage>}
+
                 <Form.Item name="verifyPassword">
                     <Input.Password
                         placeholder="Verify Password"
@@ -49,7 +51,7 @@ function Join() {
                         onChange={(e) => onChange(e)}
                     />
                 </Form.Item>
-                {!userInfo.verifyPassword && <FormErrorMessage>Please input your password</FormErrorMessage>}
+                {infoError.verifyPassword && <FormErrorMessage>{infoError.verifyPassword}</FormErrorMessage>}
 
                 <Form.Item name="nickname">
                     <Input
@@ -59,7 +61,7 @@ function Join() {
                         onChange={(e) => onChange(e)}
                     />
                 </Form.Item>
-                {!userInfo.nickname && <FormErrorMessage>Please input your nickname</FormErrorMessage>}
+                {infoError.nickname && <FormErrorMessage>{infoError.nickname}</FormErrorMessage>}
                 <Form.Item>
                     <Button type="primary" htmlType="submit">
                         Join

@@ -1,13 +1,14 @@
 //initialState
 const initialState = {
     //더미데이터, 데이터 양식
-    User : {
-        id: 1,
-        MyList: [],
-        SearchList: [],
-        profileImage: "",
-        nickname: "",
-    },
+    User : [
+        {
+            id: 1,
+            MyList: [],
+            SearchList: [],
+            nickname: "",
+        }
+    ],
     LoginData: {
         id: "",
         password: "",
