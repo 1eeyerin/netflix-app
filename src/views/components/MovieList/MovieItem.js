@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Item, ItemImage, ItemIMG, ItemTitle, MovieListItem} from "./MovieItem.Styled";
 import {Link} from "react-router-dom";
-import common from "../../../utils";
+import utils from "../../../utils";
 
 function MovieItem(props) {
     const {
@@ -11,7 +11,7 @@ function MovieItem(props) {
     const [movieList, setMovieList] = useState({});
 
     useEffect(() => {
-        const result = common.Sort.descending(item, "rating");
+        const result = utils({name:"descending", item:item, target:"rating"});
         setMovieList(result);
     }, [item]);
 

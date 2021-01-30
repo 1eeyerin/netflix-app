@@ -5,12 +5,12 @@ import MyList from "./MyList";
 import Join from "./Join";
 import Profile from "./Profile";
 
-function Member() {
+function Member({history}) {
 
     return (
         <Switch>
             <Route path={"/member/login"} component={Login}/>
-            <Route path={"/member/join"} component={Join}/>
+            <Route path={"/member/join"} component={Join} history={history}/>
             <Route path={"/member/my-list"} component={MyList}/>
             <Route path={"/member/profile"} component={Profile}/>
         </Switch>

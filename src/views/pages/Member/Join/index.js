@@ -1,83 +1,50 @@
 import React, {useEffect} from "react";
-import {Form, Button, Input} from 'antd';
-import {FormErrorMessage, FormStyled, JoinGroup} from "./index.Styled";
+import {Form} from 'antd';
 import useForm from "../../../../hooks/useForm";
 import {userActions} from "../../../../redux/actionCreators";
+import utils from "../../../../utils";
+import JoinForm from "./JoinForm";
 
 
-function Join() {
+function Join({history}) {
 
     const [form] = Form.useForm();
-    const requiredForm = {id : true, password : true, verifyPassword : true, nickname : true};
-    const storeDispatch = (user) => userActions.addedUser(user);
+    const required = {id : true, password : true, verifyPassword : true, nickname : true};
+
+    const storeDispatch = (obj) => userActions.addedUser(obj);
+    const buildDispatch = (arg) => ({
+        id : utils({name:"guid"}),
+        userId : arg.id,
+        userPassword : arg.password,
+        nickname : arg.nickname
+    });
+
     const [
         user, setUser, error, setError,
         handleOnChange, handleSubmit,
-        isSuccessIn
-    ] = useForm(storeDispatch, requiredForm);
+        isSuccessIn = false
+    ] = useForm(storeDispatch, buildDispatch, required);
+
 
     useEffect(() => {
         if(isSuccessIn) {
+            //<submit> 성공 후 실행할 목록
             setUser({});
             setError({});
             form.resetFields();
+            history.push("/");
         }
     }, [isSuccessIn]);
 
 
     return (
-        <JoinGroup>
-            <h2>Member Join</h2>
-            <FormStyled form={form} onFinish={handleSubmit}>
-                <Form.Item name="username">
-                    <Input
-                        placeholder="Username"
-                        value={user.id}
-                        name="id"
-                        onChange={(e) => handleOnChange(e)}
-                    />
-                </Form.Item>
-                {error.id && <FormErrorMessage>{error.id}</FormErrorMessage>}
-
-                <Form.Item name="password">
-                    <Input.Password
-                        placeholder="Password"
-                        type="password"
-                        value={user.password}
-                        name="password"
-                        onChange={(e) => handleOnChange(e)}
-                    />
-                </Form.Item>
-
-                {error.password && <FormErrorMessage>{error.password}</FormErrorMessage>}
-
-                <Form.Item name="verifyPassword">
-                    <Input.Password
-                        placeholder="Verify Password"
-                        type="password"
-                        value={user.verifyPassword}
-                        name="verifyPassword"
-                        onChange={(e) => handleOnChange(e)}
-                    />
-                </Form.Item>
-                {error.verifyPassword && <FormErrorMessage>{error.verifyPassword}</FormErrorMessage>}
-
-                <Form.Item name="nickname">
-                    <Input
-                        placeholder="User Nickname"
-                        value={user.nickname}
-                        name="nickname"
-                        onChange={(e) => handleOnChange(e)}
-                    />
-                </Form.Item>
-                {error.nickname && <FormErrorMessage>{error.nickname}</FormErrorMessage>}
-                <Form.Item>
-                    <Button type="primary" htmlType="submit">
-                        Join
-                    </Button>
-                </Form.Item>
-            </FormStyled>
-        </JoinGroup>
+        <JoinForm
+            form={form}
+            handleSubmit={handleSubmit}
+            handleOnChange={handleOnChange}
+            user={user}
+            error={error}
+        />
     )
 }
 

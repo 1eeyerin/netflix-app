@@ -2,7 +2,7 @@ import {all, call, put, takeLatest} from "redux-saga/effects";
 import {Action} from "./redux";
 import API from "../../api";
 
-export default function* (){
+function* saga(){
     yield all([
         takeLatest(Action.Types.GET_MOVIES, function* (){
             const result = yield call(API.getMovies);
@@ -15,3 +15,5 @@ export default function* (){
 
     ])
 }
+
+export default saga;

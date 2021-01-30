@@ -11,7 +11,7 @@ const validId = (current, required) => {
     return null;
 };
 
-const validPassword = (current, required,) => {
+const validPassword = (current, required) => {
     if(!current && required) {
         return "필수 입력값 입니다.";
     }
@@ -50,21 +50,21 @@ const validNickname = (current, required) => {
     return null;
 };
 
-function validate({current, value, user, error, requiredForm}){
+function validate({current, value, user, error, required}){
     let newError = {};
 
-    if(current === "id" || !current & !value & requiredForm.id === true) {
-        newError.id = validId(current ? value : user.id, requiredForm.id);
+    if(current === "id" || !current & !value & required.id === true) {
+        newError.id = validId(current ? value : user.id, required.id);
     }
-    if(current === "password" || !current & !value & requiredForm.password === true) {
-        newError.password = validPassword(current ? value : user.password, requiredForm.password);
+    if(current === "password" || !current & !value & required.password === true) {
+        newError.password = validPassword(current ? value : user.password, required.password);
         newError.verifyPassword = validVerifyPassword(current ? value : user.password, user?.verifyPassword);
     }
-    if(current === "verifyPassword" || !current & !value & requiredForm.verifyPassword === true) {
+    if(current === "verifyPassword" || !current & !value & required.verifyPassword === true) {
         newError.verifyPassword = validVerifyPassword(user?.password, current ? value : user?.verifyPassword);
     }
-    if(current === "nickname" || !current & !value & requiredForm.nickname === true) {
-        newError.nickname = validNickname(current ? value : user.nickname, requiredForm.nickname);
+    if(current === "nickname" || !current & !value & required.nickname === true) {
+        newError.nickname = validNickname(current ? value : user.nickname, required.nickname);
     }
 
     return {...error, ...newError};

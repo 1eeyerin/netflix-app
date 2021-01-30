@@ -3,10 +3,12 @@ const initialState = {
     //더미데이터, 데이터 양식
     Users : [
         {
-            id: 1,
+            id:"7c1a38ba-2ebe-4600-a546-9f7482766aee",
+            userId:"admin",
+            userPassword:"1234",
+            nickname:"ye-r1",
             MyList: [],
             SearchList: [],
-            nickname: "",
         },
     ],
     LoginData: {

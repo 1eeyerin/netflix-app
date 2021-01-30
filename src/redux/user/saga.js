@@ -1,3 +1,5 @@
-export default function* (){
+function* saga(){
 
 }
+
+export default saga;
