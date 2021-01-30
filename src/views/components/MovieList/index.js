@@ -10,10 +10,10 @@ function MovieList(props) {
     } = props;
 
     const {
-        movie = []
+        Movies = []
     } = useSelector(state => state?.app);
 
-    const result = movie.filter((i) => i.genres.indexOf(genres) !== -1);
+    const result = Movies.filter((i) => i.genres.indexOf(genres) !== -1);
 
 
     return(

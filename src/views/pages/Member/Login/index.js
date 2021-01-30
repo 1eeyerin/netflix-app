@@ -8,15 +8,15 @@ import {Link} from "react-router-dom";
 
 function Login() {
     const {
-        movie = []
+        Movies = []
     } = useSelector(state => state.app);
 
     const [background, setBackground] = useState('');
 
     useEffect(() => {
-        const result = movie.length && movie[Math.floor(Math.random() * movie.length)].background_image_original;
+        const result = Movies.length && Movies[Math.floor(Math.random() * Movies.length)].background_image_original;
         result && setBackground(result);
-    }, [movie]);
+    }, [Movies]);
 
 
     const onFinish = (values) => {

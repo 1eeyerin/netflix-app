@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import {Form} from "antd";
 
-
 export const JoinGroup = styled.div`
   max-width: 600px;
   margin: 60px auto;

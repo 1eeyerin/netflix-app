@@ -8,7 +8,7 @@ export default function* (){
             const result = yield call(API.getMovies);
             if(result?.data) {
                 yield put(Action.Creators.updateState({
-                    movie: result.data.data.movies
+                    Movies: result.data.data.movies
                 }))
             }
         }),

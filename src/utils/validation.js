@@ -1,5 +1,5 @@
-const validId = (current) => {
-    if(!current) {
+const validId = (current, required) => {
+    if(!current && required) {
         return "필수 입력값 입니다."
     }
     if (current.length < 2) {
@@ -11,8 +11,8 @@ const validId = (current) => {
     return null;
 };
 
-const validPassword = (current) => {
-    if(!current) {
+const validPassword = (current, required,) => {
+    if(!current && required) {
         return "필수 입력값 입니다.";
     }
     if (current.length < 2) {
@@ -37,8 +37,8 @@ const validVerifyPassword = (password, current) => {
     return null;
 };
 
-const validNickname = (current) => {
-    if(!current) {
+const validNickname = (current, required) => {
+    if(!current && required) {
         return "필수 입력값 입니다.";
     }
     if (current.length < 2) {
@@ -50,21 +50,21 @@ const validNickname = (current) => {
     return null;
 };
 
-function validate({current, value, user, error}){
+function validate({current, value, user, error, requiredForm}){
     let newError = {};
 
-    if(!current || current === "id") {
-        newError.id = validId(current ? value : user.id);
+    if(current === "id" || !current & !value & requiredForm.id === true) {
+        newError.id = validId(current ? value : user.id, requiredForm.id);
     }
-    if(!current || current === "password") {
-        newError.password = validPassword(current ? value : user.password);
+    if(current === "password" || !current & !value & requiredForm.password === true) {
+        newError.password = validPassword(current ? value : user.password, requiredForm.password);
         newError.verifyPassword = validVerifyPassword(current ? value : user.password, user?.verifyPassword);
     }
-    if(!current || current === "verifyPassword") {
+    if(current === "verifyPassword" || !current & !value & requiredForm.verifyPassword === true) {
         newError.verifyPassword = validVerifyPassword(user?.password, current ? value : user?.verifyPassword);
     }
-    if(!current || current === "nickname") {
-        newError.nickname = validNickname(current ? value : user.nickname);
+    if(current === "nickname" || !current & !value & requiredForm.nickname === true) {
+        newError.nickname = validNickname(current ? value : user.nickname, requiredForm.nickname);
     }
 
     return {...error, ...newError};

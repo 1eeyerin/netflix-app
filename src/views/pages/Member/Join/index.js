@@ -1,67 +1,82 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect} from "react";
 import {Form, Button, Input} from 'antd';
 import {FormErrorMessage, FormStyled, JoinGroup} from "./index.Styled";
 import useForm from "../../../../hooks/useForm";
+import {userActions} from "../../../../redux/actionCreators";
 
 
 function Join() {
 
-    const [userInfo, setUserInfo] = useState({});
-    const [infoError, setInfoError] = useState({});
-    const [onChange, handleSubmit] = useForm(userInfo, setUserInfo, infoError, setInfoError);
+    const [form] = Form.useForm();
+    const requiredForm = {id : true, password : true, verifyPassword : true, nickname : true};
+    const storeDispatch = (user) => userActions.updateState(user);
+    const [
+        user, setUser, error, setError,
+        handleOnChange, handleSubmit,
+        isSuccessIn
+    ] = useForm(storeDispatch, requiredForm);
 
     useEffect(() => {
+        if(isSuccessIn) {
+            setUser({});
+            setError({});
 
-        console.log('@@ error',infoError);
+            form.resetFields();
+        }
+    }, [isSuccessIn]);
 
-    }, [userInfo, infoError]);
+
+    useEffect(()=> {
+        console.log('@@ user',user);
+        console.log('@@ error',error);
+    }, [user, error]);
 
     return (
         <JoinGroup>
             <h2>Member Join</h2>
-            <FormStyled onFinish={(e) => handleSubmit(e)}>
+            <FormStyled form={form} onFinish={handleSubmit}>
                 <Form.Item name="username">
                     <Input
                         placeholder="Username"
-                        value={userInfo.id}
+                        value={user.id}
                         name="id"
-                        onChange={(e) => onChange(e)}
+                        onChange={(e) => handleOnChange(e)}
                     />
                 </Form.Item>
-                {infoError.id && <FormErrorMessage>{infoError.id}</FormErrorMessage>}
+                {error.id && <FormErrorMessage>{error.id}</FormErrorMessage>}
 
                 <Form.Item name="password">
                     <Input.Password
                         placeholder="Password"
                         type="password"
-                        value={userInfo.password}
+                        value={user.password}
                         name="password"
-                        onChange={(e) => onChange(e)}
+                        onChange={(e) => handleOnChange(e)}
                     />
                 </Form.Item>
 
-                {infoError.password && <FormErrorMessage>{infoError.password}</FormErrorMessage>}
+                {error.password && <FormErrorMessage>{error.password}</FormErrorMessage>}
 
                 <Form.Item name="verifyPassword">
                     <Input.Password
                         placeholder="Verify Password"
                         type="password"
-                        value={userInfo.verifyPassword}
+                        value={user.verifyPassword}
                         name="verifyPassword"
-                        onChange={(e) => onChange(e)}
+                        onChange={(e) => handleOnChange(e)}
                     />
                 </Form.Item>
-                {infoError.verifyPassword && <FormErrorMessage>{infoError.verifyPassword}</FormErrorMessage>}
+                {error.verifyPassword && <FormErrorMessage>{error.verifyPassword}</FormErrorMessage>}
 
                 <Form.Item name="nickname">
                     <Input
                         placeholder="User Nickname"
-                        value={userInfo.nickname}
+                        value={user.nickname}
                         name="nickname"
-                        onChange={(e) => onChange(e)}
+                        onChange={(e) => handleOnChange(e)}
                     />
                 </Form.Item>
-                {infoError.nickname && <FormErrorMessage>{infoError.nickname}</FormErrorMessage>}
+                {error.nickname && <FormErrorMessage>{error.nickname}</FormErrorMessage>}
                 <Form.Item>
                     <Button type="primary" htmlType="submit">
                         Join

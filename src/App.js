@@ -15,11 +15,11 @@ import ScrollToTop from "./utils/scrollToTop";
 
 function App(){
     const {
-        movie = []
+        Movies = []
     } = useSelector(state => state?.app);
 
     useEffect(() => {
-        if(!movie.length) {
+        if(!Movies.length) {
             console.log('@@APP/GET_MOVIES');
             appActions.getMovies();
         }

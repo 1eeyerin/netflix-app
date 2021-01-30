@@ -9,7 +9,7 @@ function Detail(props){
     } = props;
 
     const {
-        movie = []
+        Movies = []
     } = useSelector(state => state?.app);
 
     const [post, setPost] = useState({});
@@ -17,15 +17,15 @@ function Detail(props){
     const id = Number(match.params.id);
 
     useEffect(() => {
-        const postResult = movie.length && movie.find((i) => id === i.id);
+        const postResult = Movies.length && Movies.find((i) => id === i.id);
         setPost(postResult);
-    }, [movie, id]);
+    }, [Movies, id]);
 
     useEffect(() => {
         const genreArr = post.genres;
-        const otherPostResult = genreArr && movie.filter((item) => {
+        const otherPostResult = genreArr && Movies.filter((item) => {
             for(let i=0; i<genreArr.length; i++){
-                if(item.genres.indexOf(genreArr[i]) !== -1) return true;
+                if(item.genres.indexOf(genreArr[i]) !== -1 && post.id !== item.id) return true;
             }
         });
         setOtherPost(otherPostResult);

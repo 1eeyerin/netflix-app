@@ -1,7 +1,7 @@
 //initialState
 const initialState = {
     //더미데이터, 데이터 양식
-    User : [
+    Users : [
         {
             id: 1,
             MyList: [],
@@ -26,7 +26,8 @@ const initialState = {
 //action
 const Action = {
     Types: {
-        UPDATE_STATE: "@@USER/UPDATE_STATE"
+        UPDATE_STATE: "@@USER/UPDATE_STATE",
+        ADD_USER: "@@USER/ADD_USER",
     },
     Creators: {
         updateState: (props) => ({
