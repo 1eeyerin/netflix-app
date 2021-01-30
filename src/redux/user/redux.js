@@ -7,7 +7,7 @@ const initialState = {
             MyList: [],
             SearchList: [],
             nickname: "",
-        }
+        },
     ],
     LoginData: {
         id: "",
@@ -27,14 +27,19 @@ const initialState = {
 const Action = {
     Types: {
         UPDATE_STATE: "@@USER/UPDATE_STATE",
-        ADD_USER: "@@USER/ADD_USER",
+        ADDED_USER: "@@USER/ADDED_USER"
     },
     Creators: {
         updateState: (props) => ({
             type: Action.Types.UPDATE_STATE,
             payload: props
-        })
+        }),
+        addedUser: (props) => ({
+            type: Action.Types.ADDED_USER,
+            payload:props
+        }),
     }
+
 }
 
 //reducer
@@ -45,6 +50,14 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 ...action.payload
+            }
+        }
+        case Action.Types.ADDED_USER: {
+            return {
+                ...state,
+                Users : [
+                    state.Users.concat(action.payload)
+                ]
             }
         }
     }

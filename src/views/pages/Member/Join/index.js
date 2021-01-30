@@ -9,7 +9,7 @@ function Join() {
 
     const [form] = Form.useForm();
     const requiredForm = {id : true, password : true, verifyPassword : true, nickname : true};
-    const storeDispatch = (user) => userActions.updateState(user);
+    const storeDispatch = (user) => userActions.addedUser(user);
     const [
         user, setUser, error, setError,
         handleOnChange, handleSubmit,
@@ -20,16 +20,10 @@ function Join() {
         if(isSuccessIn) {
             setUser({});
             setError({});
-
             form.resetFields();
         }
     }, [isSuccessIn]);
 
-
-    useEffect(()=> {
-        console.log('@@ user',user);
-        console.log('@@ error',error);
-    }, [user, error]);
 
     return (
         <JoinGroup>

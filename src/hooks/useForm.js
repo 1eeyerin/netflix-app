@@ -31,9 +31,7 @@ function useForm(storeDispatch, requiredForm) {
         const checkSubmit = Boolean(resultValue.length) && resultValue.every((i) => i === null);
 
         if (checkSubmit) {
-            storeDispatch({
-                Users : [user]
-            });
+            storeDispatch({...user});
             alert('회원가입이 완료되었습니다.');
 
             setIsSuccessIn(true);
