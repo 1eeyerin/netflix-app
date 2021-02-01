@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 
 function LoginForm(props) {
     const {
-        form, handleSubmit, background
+        form, background, handleSubmit
     } = props;
 
     return (
@@ -20,26 +20,12 @@ function LoginForm(props) {
                     onFinish={handleSubmit}
                 >
                     <Form.Item
-                        name="username"
+                        name="userId"
                         className="user-name"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your Username!',
-                            },
-                        ]}
                     >
                         <Input prefix={<UserOutlined className="site-form-item-icon"/>} placeholder="Username"/>
                     </Form.Item>
-                    <Form.Item
-                        name="password"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your Password!',
-                            },
-                        ]}
-                    >
+                    <Form.Item name="userPassword">
                         <Input
                             prefix={<LockOutlined className="site-form-item-icon"/>}
                             type="password"

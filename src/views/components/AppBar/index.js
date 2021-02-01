@@ -1,8 +1,13 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {Header, HeaderLeft, HeaderRight, HeaderWrap} from "./AppBar.Styled";
+import {useSelector} from "react-redux";
 
 function AppBar() {
+
+    const {
+        isLoggedIn = false
+    } = useSelector(state => state.user);
 
     return (
         <Header>
@@ -17,9 +22,14 @@ function AppBar() {
                 </HeaderLeft>
                 <HeaderRight>
                     <ul>
-                        <li><Link to="/member/profile">profile</Link></li>
-                        <li><Link to="/member/join">join</Link></li>
-                        <li><Link to="/member/login">login</Link></li>
+                        {isLoggedIn ? (
+                            <>
+                                <li><Link to="/member/profile">profile</Link></li>
+                                <li><Link to="/member/logout">logout</Link></li>
+                            </>
+                        ) : (
+                            <li><Link to="/member/login">login</Link></li>
+                        )}
                     </ul>
                 </HeaderRight>
             </HeaderWrap>

@@ -11,17 +11,7 @@ const initialState = {
             SearchList: [],
         },
     ],
-    LoginData: {
-        id: "",
-        password: "",
-        nickname: "",
-    },
-    signUpData: {
-        id: "",
-        password: "",
-        nickname: "",
-        email: "",
-    },
+    LoginData: {},
     isLoggedIn: false,
 }
 
@@ -57,9 +47,7 @@ const reducer = (state = initialState, action) => {
         case Action.Types.ADDED_USER: {
             return {
                 ...state,
-                Users : [
-                    state.Users.concat(action.payload)
-                ]
+                Users : state.Users.concat(action.payload)
             }
         }
     }

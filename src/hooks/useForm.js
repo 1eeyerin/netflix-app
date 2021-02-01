@@ -20,7 +20,8 @@ function useForm(storeDispatch, buildDispatch, required) {
     }, [user, error]);
 
 
-    const handleSubmit = useCallback(() => {
+    const handleSubmit = () => {
+
         setIsSuccessIn(false);
 
         //현재 입력하는 값이 없기에 기존 데이터 <user>로 검사
@@ -28,18 +29,16 @@ function useForm(storeDispatch, buildDispatch, required) {
         setError(result);
 
 
-
         const resultValue = Object.values(result);
         const checkSubmit = Boolean(resultValue.length) && resultValue.every((i) => i === null);
 
         if (checkSubmit) {
             storeDispatch(buildDispatch(user));
-            alert('회원가입이 완료되었습니다.');
-
             setIsSuccessIn(true);
+        } else {
+            alert('오류가 발생하였습니다.');
         }
-
-    }, [user, error]);
+    };
 
 
     return [user, setUser, error, setError, handleOnChange, handleSubmit, isSuccessIn];

@@ -1,12 +1,16 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {Form} from 'antd';
-import useForm from "../../../../hooks/useForm";
 import {userActions} from "../../../../redux/actionCreators";
 import utils from "../../../../utils";
 import JoinForm from "./JoinForm";
+import {useSelector} from "react-redux";
+import SubmitController from "./SubmitController";
 
 
 function Join({history}) {
+    const {
+        isLoggedIn = false
+    } = useSelector(state => state.user);
 
     const [form] = Form.useForm();
     const required = {id : true, password : true, verifyPassword : true, nickname : true};
@@ -19,22 +23,10 @@ function Join({history}) {
         nickname : arg.nickname
     });
 
-    const [
-        user, setUser, error, setError,
-        handleOnChange, handleSubmit,
-        isSuccessIn = false
-    ] = useForm(storeDispatch, buildDispatch, required);
-
-
-    useEffect(() => {
-        if(isSuccessIn) {
-            //<submit> 성공 후 실행할 목록
-            setUser({});
-            setError({});
-            form.resetFields();
-            history.push("/");
-        }
-    }, [isSuccessIn]);
+    const [user, error, handleSubmit, handleOnChange] = SubmitController({
+        form, required, isLoggedIn, history,
+        storeDispatch, buildDispatch
+    });
 
 
     return (
