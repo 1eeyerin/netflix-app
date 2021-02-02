@@ -37,6 +37,7 @@ function SubmitController(Users, form, history, isLoggedIn) {
                         id: result.id,
                         userId: result.userId,
                         nickname: result.nickname,
+                        myList: result.myList,
                     }
                 })
             } else {

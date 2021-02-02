@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {RiHeartAddLine} from "react-icons/ri";
 
 export const MovieInfo = styled.div`
 `
@@ -9,16 +10,18 @@ export const ItemGroup = styled.div`
     flex-wrap: wrap;
   }
 `
-export const ItemImage = styled.div`
+export const ColLeft = styled.div`
 `
-export const ItemIMG = styled.img`
+export const PosterImage = styled.div`
+`
+export const PosterIMG = styled.img`
   width: 250px;
 
   @media ${(props) => props.theme.mobile} {
     width: 180px;
   }
 `
-export const ItemInfo = styled.div`
+export const ColRight = styled.div`
   box-sizing: border-box;
   padding: 0 50px;
   font-size: 14px;
@@ -68,4 +71,35 @@ export const OtherMovies = styled.div`
   }
 `
 export const OtherMovieList = styled.div`
+`
+export const LikeButton = styled.button`
+  font-size: 15px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  transition: .4s;
+
+  span {
+    margin-left: 8px;
+  }
+
+  &:not(.active):hover {
+    opacity: 0.5;
+  }
+
+  svg {
+    animation: bounceHeart 1s 2 ease-out;
+  }
+  &.active {
+    color: #34b56b;
+  }
+`
+export const HeartIcon = styled(RiHeartAddLine)`
+  font-size: 20px;
+  transition: animation .4s;
+  @keyframes bounceHeart {
+    0% {transform: translateY(0px)}
+    50% {transform: translateY(-3px)}
+    100% {transform: translateY(0px)}
+  }
 `

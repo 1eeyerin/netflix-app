@@ -7,7 +7,7 @@ const initialState = {
             userId:"admin",
             userPassword:"1234",
             nickname:"ye-r1",
-            MyList: [],
+            myList: [26182, 26223],
             SearchList: [],
         },
     ],
@@ -19,7 +19,9 @@ const initialState = {
 const Action = {
     Types: {
         UPDATE_STATE: "@@USER/UPDATE_STATE",
-        ADDED_USER: "@@USER/ADDED_USER"
+        ADDED_USER: "@@USER/ADDED_USER",
+        ADD_MYLIST: "@@USER/ADD_MYLIST",
+        REMOVE_MYLIST: "@@USER/REMOVE_MYLIST",
     },
     Creators: {
         updateState: (props) => ({
@@ -28,6 +30,14 @@ const Action = {
         }),
         addedUser: (props) => ({
             type: Action.Types.ADDED_USER,
+            payload:props
+        }),
+        addMyList: (props) => ({
+            type: Action.Types.ADD_MYLIST,
+            payload:props
+        }),
+        removeMyList: (props) => ({
+            type: Action.Types.REMOVE_MYLIST,
             payload:props
         }),
     }
@@ -48,6 +58,32 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 Users : state.Users.concat(action.payload)
+            }
+        }
+        case Action.Types.ADD_MYLIST: {
+            return {
+                ...state,
+                LoginData : {
+                    ...state.LoginData,
+                    myList : (() => {
+                        const addMyListArr = [...state.LoginData.myList];
+                        addMyListArr.unshift(action.payload);
+                        return addMyListArr;
+                    })()
+                }
+            }
+        }
+        case Action.Types.REMOVE_MYLIST: {
+            return {
+                ...state,
+                LoginData : {
+                    ...state.LoginData,
+                    myList : (() => {
+                        const removeMyListArr = [...state.LoginData.myList];
+                        removeMyListArr.splice(removeMyListArr.indexOf(action.payload),1);
+                        return removeMyListArr;
+                    })()
+                }
             }
         }
     }

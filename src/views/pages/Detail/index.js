@@ -1,41 +1,33 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {useSelector} from "react-redux";
 import MovieDetail from "./MovieDetail";
 import {DetailGroup, MainAreaStyled} from "./index.Styled";
+import DetailController from "./DetailController";
 
 function Detail(props){
-    const {
-        match
-    } = props;
-
-    const {
-        Movies = []
-    } = useSelector(state => state?.app);
-
-    const [post, setPost] = useState({});
-    const [otherPost, setOtherPost] = useState({});
+    const {match} = props;
     const id = Number(match.params.id);
+    const {
+        app : {Movies = []},
+        user : {
+            LoginData: {myList = []},
+            isLoggedIn
+        }
+    } = useSelector(state => state);
 
-    useEffect(() => {
-        const postResult = Movies.length && Movies.find((i) => id === i.id);
-        setPost(postResult);
-    }, [Movies, id]);
-
-    useEffect(() => {
-        const genreArr = post.genres;
-        const otherPostResult = genreArr && Movies.filter((item) => {
-            for(let i=0; i<genreArr.length; i++){
-                if(item.genres.indexOf(genreArr[i]) !== -1 && post.id !== item.id) return true;
-            }
-        });
-        setOtherPost(otherPostResult);
-    }, [post]);
+    const [post, otherPost, isLiked, toggleLikeButton] = DetailController(id, Movies, myList);
 
 
     return(
         <DetailGroup background={post.background_image_original}>
             <MainAreaStyled>
-                <MovieDetail post={post} otherPost={otherPost} />
+                <MovieDetail
+                    post={post}
+                    otherPost={otherPost}
+                    isLiked={isLiked}
+                    isLoggedIn={isLoggedIn}
+                    toggleLikeButton={toggleLikeButton}
+                />
             </MainAreaStyled>
         </DetailGroup>
     )

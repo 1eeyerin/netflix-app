@@ -1,21 +1,39 @@
 import React from "react";
 import {
-    Description, Genre, Genres, ItemGroup, ItemImage,
-    ItemIMG, ItemInfo, MovieInfo, OtherMovieList, OtherMovies, Rating, Runtime, Title, Year
+    Description, Genre, Genres, ItemGroup, ColLeft, ColRight, PosterImage,
+    PosterIMG, MovieInfo, OtherMovieList, OtherMovies, Rating, Runtime, Title, Year,
+    LikeButton, HeartIcon
 } from "./MovieDetail.Styled";
 import MovieItem from "../../components/MovieList/MovieItem";
+import {FaCheckCircle} from "react-icons/fa";
+import cn from "classnames";
 
 function MovieDetail(props){
     const {
         post,
-        otherPost
+        otherPost,
+        isLiked,
+        isLoggedIn,
+        toggleLikeButton
     } = props;
+
 
     return(
         <MovieInfo>
             <ItemGroup>
-                <ItemImage><ItemIMG src={post.medium_cover_image} alt=""/></ItemImage>
-                <ItemInfo>
+                <ColLeft>
+                    <PosterImage><PosterIMG src={post.medium_cover_image} alt=""/></PosterImage>
+                    {
+                        isLoggedIn &&
+                        <LikeButton
+                            type="button"
+                            onClick={() => toggleLikeButton(isLiked)}
+                            className={cn({active: isLiked})}>
+                            {isLiked ? <AddedLikeList /> : <AddLikeList />}
+                        </LikeButton>
+                    }
+                </ColLeft>
+                <ColRight>
                     <Title>{post.title_long}</Title>
                     <Year>{post.year}</Year>
                     <Rating>
@@ -41,11 +59,25 @@ function MovieDetail(props){
                         <OtherMovieList>
                         </OtherMovieList>
                     </OtherMovies>
-                </ItemInfo>
+                </ColRight>
             </ItemGroup>
         </MovieInfo>
     )
 }
+
+
+function AddedLikeList() {
+    return (
+        <><FaCheckCircle /> <span>보관함에 추가됨</span></>
+    )
+}
+
+function AddLikeList() {
+    return (
+        <><HeartIcon /> <span>보관함에 추가</span></>
+    )
+}
+
 
 
 export default MovieDetail;
