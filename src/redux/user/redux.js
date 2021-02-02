@@ -7,7 +7,7 @@ const initialState = {
             userId:"admin",
             userPassword:"1234",
             nickname:"ye-r1",
-            myList: [26199, 26182, 26223, 26231, 26216, 26229],
+            myList: [26231, 26229, 26199, 26216, 26182, 26206],
             SearchList: [],
         },
     ],

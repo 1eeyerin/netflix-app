@@ -5,7 +5,7 @@ function HomeController(Movies, myList){
             return Movies.length && Movies.filter((i) => i.genres.indexOf(val) !== -1);
         }
         if(el === "myList") {
-            return Movies.length && Movies.filter((i) => myList.includes(i.id));
+            return myList.map(item => Movies.find(m => m.id === item));
         }
     }
 

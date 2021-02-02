@@ -12,16 +12,17 @@ function Home() {
 
     const [movieListFilter] = HomeController(Movies, myList);
 
-
     return (
         <MainArea>
             <MovieList
                 itemlistTitle={"인기 컨텐츠"}
                 result={movieListFilter("genres","Action")}/>
-            {isLoggedIn &&
+            {
+                isLoggedIn &&
                 <MovieList
                     itemlistTitle={"ye-r1님이 좋아하는 컨텐츠"}
-                    result={movieListFilter("myList")}/>
+                    result={movieListFilter("myList")}
+                    sorting={false}/>
             }
             <MovieList
                 itemlistTitle={"드라마"}

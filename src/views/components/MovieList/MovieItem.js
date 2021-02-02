@@ -1,19 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {Item, ItemImage, ItemIMG, ItemTitle, MovieListItem} from "./MovieItem.Styled";
 import {Link} from "react-router-dom";
-import utils from "../../../utils";
+import MovieItemController from "./MovieItemController";
 
 function MovieItem(props) {
-    const {
-        item
-    } = props;
-
-    const [movieList, setMovieList] = useState({});
-
-    useEffect(() => {
-        const result = utils({name:"descending", item:item, target:"rating"});
-        setMovieList(result);
-    }, [item]);
+    const {item, sorting} = props;
+    const [movieList] = MovieItemController(item, sorting);
 
     return (
         <Item>
