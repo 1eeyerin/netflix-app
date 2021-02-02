@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {userActions} from "../../../redux/actionCreators";
+import utils from "../../../utils";
 
 function DetailController(id, Movies, myList){
     const [isLiked, setIsLiked] = useState(false);
@@ -14,17 +15,19 @@ function DetailController(id, Movies, myList){
 
 
     useEffect(() => {
-        //추천 post 생성, <myList>에 있는 게시글인지 체크
+        //<myList>에 있는 게시글인지 체크, otherPost 생성 및 sorting
+        const likedListResult = post && Boolean(myList.find((item) => item === post.id));
+
         const genreArr = post.genres;
         const otherPostResult = genreArr && Movies.filter((item) => {
             for(let i=0; i<genreArr.length; i++){
                 if(item.genres.indexOf(genreArr[i]) !== -1 && post.id !== item.id) return true;
             }
         });
-        const likedListResult = post && Boolean(myList.find((item) => item === post.id));
+        const result = utils({name:"descending", item: otherPostResult, target:"rating"});
 
-        setOtherPost(otherPostResult);
         setIsLiked(likedListResult);
+        setOtherPost(result);
     }, [post]);
 
 

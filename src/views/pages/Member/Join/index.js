@@ -20,7 +20,9 @@ function Join({history}) {
         id : utils({name:"guid"}),
         userId : arg.id,
         userPassword : arg.password,
-        nickname : arg.nickname
+        nickname : arg.nickname,
+        myList: [],
+        SearchList: [],
     });
 
     const [user, error, handleSubmit, handleOnChange] = SubmitController({

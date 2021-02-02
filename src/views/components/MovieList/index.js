@@ -3,13 +3,12 @@ import MovieItem from "./MovieItem";
 import styled from "styled-components";
 
 function MovieList(props) {
-    const {itemlistTitle, result, sorting} = props;
-
+    const {itemlistTitle, item} = props;
 
     return(
         <List>
             <h2>{itemlistTitle}</h2>
-            <MovieItem item={result} sorting={sorting} />
+            {Boolean(item.length) && <MovieItem item={item}/>}
         </List>
     )
 }

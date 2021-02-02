@@ -1,29 +1,25 @@
 import React from "react";
-import styled from "styled-components";
 import {useSelector} from "react-redux";
+import MovieListController from "../../../components/MovieList/MovieListController";
+import MyMovieList from "./MyMovieList";
 
 function MyList(){
     const {
-        LoginData : {
-            myList = [],
-            nickname = ""
-        }
-    } = useSelector(state => state.user);
-    
-    console.log('@@ hi');
-    console.log('@@ myList',myList);
+        app : {Movies = []},
+        user : {isLoggedIn = false, LoginData : {myList = [], nickname = ""}}
+    } = useSelector(state => state);
+
+    const [MovieListFilter] = MovieListController(Movies, myList);
+
     return(
-        <Container>
-            최근 {nickname}님이 좋아하시는 컨텐츠 : 
-            {myList.map((item) => {
-                return item
-            })}
-        </Container>
+        <MyMovieList
+            isLoggedIn={isLoggedIn}
+            MovieListFilter={MovieListFilter}
+            nickname={nickname}
+            myList={myList}
+        />
     )
 }
 
-const Container = styled.div`
-
-`
 
 export default MyList;

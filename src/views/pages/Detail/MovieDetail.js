@@ -10,11 +10,7 @@ import cn from "classnames";
 
 function MovieDetail(props){
     const {
-        post,
-        otherPost,
-        isLiked,
-        isLoggedIn,
-        toggleLikeButton
+        post, otherPost, isLiked, isLoggedIn, toggleLikeButton
     } = props;
 
 

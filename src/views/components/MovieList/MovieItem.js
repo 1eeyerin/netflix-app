@@ -1,16 +1,14 @@
 import React from "react";
 import {Item, ItemImage, ItemIMG, ItemTitle, MovieListItem} from "./MovieItem.Styled";
 import {Link} from "react-router-dom";
-import MovieItemController from "./MovieItemController";
 
 function MovieItem(props) {
-    const {item, sorting} = props;
-    const [movieList] = MovieItemController(item, sorting);
+    const {item} = props;
 
     return (
         <Item>
             {
-                movieList.length && movieList.map((i) => {
+                item.length && item.map((i) => {
                     return (
                         <MovieListItem key={i.id}>
                             <Link to={`/detail/${i.id}`}>
