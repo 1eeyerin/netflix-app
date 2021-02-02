@@ -1,19 +1,12 @@
 import React from "react";
-import {useSelector} from "react-redux";
 import MovieItem from "./MovieItem";
 import styled from "styled-components";
 
 function MovieList(props) {
     const {
         itemlistTitle,
-        genres
+        result
     } = props;
-
-    const {
-        Movies = []
-    } = useSelector(state => state?.app);
-
-    const result = Movies.filter((i) => i.genres.indexOf(genres) !== -1);
 
 
     return(
