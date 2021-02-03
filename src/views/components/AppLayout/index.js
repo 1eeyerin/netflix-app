@@ -17,6 +17,7 @@ const Container = styled.div`
   font-size: 13px;
 `
 const MainContainer = styled.main`
+    overflow:hidden;
 `
 
 export default AppLayout;

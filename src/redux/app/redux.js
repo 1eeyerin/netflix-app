@@ -1,7 +1,7 @@
 //initialState
 const initialState = {
     openSidebar : false,
-    pageLoading : false
+    bestMovies: [26185, 26232, 26213, 26229, 26231, 26229, 26216, 26182, 26206, 26199],
 }
 
 //action

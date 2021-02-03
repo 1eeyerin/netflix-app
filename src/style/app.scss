@@ -7,3 +7,18 @@ body {
   background: #202020;
   color: #fff;
 }
+.slick-track {margin:0}
+.slick-list {overflow: visible;}
+.slick-arrow {
+  height: 100%;
+  width: 40px;
+  z-index:100;
+}
+.slick-arrow.slick-prev {
+  left: -3.5%;
+}
+.slick-arrow.slick-next {
+  right: -3.5%;
+}
+.slick-prev.slick-disabled:before, .slick-next.slick-disabled:before{opacity:0}
+.slick-prev.slick-disabled, .slick-next.slick-disabled{cursor:default;}

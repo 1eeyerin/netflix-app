@@ -1,12 +1,12 @@
 import React from "react";
-import {Item, ItemImage, ItemIMG, ItemTitle, MovieListItem} from "./MovieItem.Styled";
+import {MovieSlider, ItemImage, ItemIMG, ItemTitle, MovieListItem} from "./MovieItem.Styled";
 import {Link} from "react-router-dom";
 
 function MovieItem(props) {
-    const {item} = props;
+    const {item, settings} = props;
 
     return (
-        <Item>
+        <MovieSlider {...settings}>
             {
                 item.length && item.map((i) => {
                     return (
@@ -15,13 +15,13 @@ function MovieItem(props) {
                                 <ItemImage>
                                     <ItemIMG src={i.large_cover_image} alt={i.title}/>
                                 </ItemImage>
-                                <ItemTitle>{i.title}</ItemTitle>
+                                <ItemTitle className="e_">{i.title}</ItemTitle>
                             </Link>
                         </MovieListItem>
                     )
                 })
             }
-        </Item>
+        </MovieSlider>
     )
 }
 

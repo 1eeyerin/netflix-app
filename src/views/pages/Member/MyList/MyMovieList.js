@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 function MyMovieList(props){
     const {
-        isLoggedIn, MovieListFilter, nickname, myList
+        isLoggedIn, MovieListFilter, nickname, myList, settings
     } = props;
 
     return(
@@ -14,6 +14,7 @@ function MyMovieList(props){
                 isLoggedIn &&
                 <MovieList
                     itemlistTitle={`${nickname}님이 좋아하는 컨텐츠`}
+                    settings={settings}
                     item={MovieListFilter({el:"myList", sorting:false})}
                     sorting={false}/>
             }

@@ -10,7 +10,7 @@ import cn from "classnames";
 
 function MovieDetail(props){
     const {
-        post, otherPost, isLiked, isLoggedIn, toggleLikeButton
+        post, otherPost, isLiked, isLoggedIn, toggleLikeButton, settings
     } = props;
 
 
@@ -50,7 +50,7 @@ function MovieDetail(props){
                         {
                             otherPost &&
                             typeof(otherPost) !== undefined && otherPost.length &&
-                            <MovieItem item={otherPost} />
+                            <MovieItem item={otherPost} settings={settings} />
                         }
                         <OtherMovieList>
                         </OtherMovieList>

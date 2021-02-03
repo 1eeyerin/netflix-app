@@ -62,6 +62,7 @@ export const Genres = styled.span`
   }
 `
 export const OtherMovies = styled.div`
+  overflow:hidden;
   margin-top: 50px;
   background: rgba(0,0,0,0.5);
   padding: 35px 25px;

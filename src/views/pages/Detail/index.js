@@ -17,6 +17,15 @@ function Detail(props){
 
     const [post, otherPost, isLiked, toggleLikeButton] = DetailController(id, Movies, myList);
 
+    const settings = {
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 6,
+        slidesToScroll: 6,
+        touchMove: false,
+    };
+
 
     return(
         <DetailGroup background={post.background_image_original}>
@@ -27,6 +36,7 @@ function Detail(props){
                     isLiked={isLiked}
                     isLoggedIn={isLoggedIn}
                     toggleLikeButton={toggleLikeButton}
+                    settings={settings}
                 />
             </MainAreaStyled>
         </DetailGroup>
