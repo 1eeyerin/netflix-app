@@ -1,3 +1,5 @@
+import produce from "immer";
+
 //initialState
 const initialState = {
     //더미데이터, 데이터 양식
@@ -46,47 +48,29 @@ const Action = {
 
 //reducer
 const reducer = (state = initialState, action) => {
-    switch(action.type){
-        default: return state;
-        case Action.Types.UPDATE_STATE: {
-            return {
-                ...state,
-                ...action.payload
-            }
-        }
-        case Action.Types.ADDED_USER: {
-            return {
-                ...state,
-                Users : state.Users.concat(action.payload)
-            }
-        }
-        case Action.Types.ADD_MYLIST: {
-            return {
-                ...state,
-                LoginData : {
-                    ...state.LoginData,
-                    myList : (() => {
-                        const addMyListArr = [...state.LoginData.myList];
-                        addMyListArr.unshift(action.payload);
-                        return addMyListArr;
-                    })()
+    return produce(state, draft => {
+        switch(action.type){
+            default: return draft;
+            case Action.Types.UPDATE_STATE: {
+                return {
+                    ...state,
+                    ...action.payload
                 }
             }
-        }
-        case Action.Types.REMOVE_MYLIST: {
-            return {
-                ...state,
-                LoginData : {
-                    ...state.LoginData,
-                    myList : (() => {
-                        const removeMyListArr = [...state.LoginData.myList];
-                        removeMyListArr.splice(removeMyListArr.indexOf(action.payload),1);
-                        return removeMyListArr;
-                    })()
-                }
+            case Action.Types.ADDED_USER: {
+                draft.Users.push(action.payload);
+                break;
+            }
+            case Action.Types.ADD_MYLIST: {
+                draft.LoginData.myList.unshift(action.payload);
+                break;
+            }
+            case Action.Types.REMOVE_MYLIST: {
+                draft.LoginData.myList.splice(draft.LoginData.myList.indexOf(action.payload),1);
+                break;
             }
         }
-    }
+    });
 }
     
 

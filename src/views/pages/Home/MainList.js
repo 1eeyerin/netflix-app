@@ -33,14 +33,6 @@ function MainList(props){
                 itemlistTitle={"코미디 영화"}
                 settings={settings}
                 item={MovieListFilter({el:"genres", val:"Comedy"})}/>
-            <MovieList
-                itemlistTitle={"로맨스 영화"}
-                settings={settings}
-                item={MovieListFilter({el:"genres", val:"Romance"})}/>
-            <MovieList
-                itemlistTitle={"액션 영화"}
-                settings={settings}
-                item={MovieListFilter({el:"genres", val:"Action"})}/>
         </MainArea>
     )
 }
