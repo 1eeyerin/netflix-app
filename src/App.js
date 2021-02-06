@@ -11,6 +11,7 @@ import Member from "./views/pages/Member";
 import {ThemeProvider} from "styled-components";
 import theme from "./style/theme";
 import ScrollToTop from "./utils/scrollToTop";
+import {AnimatedSwitch} from "react-router-transition";
 
 
 function App(){
@@ -30,11 +31,18 @@ function App(){
             <ScrollToTop />
             <AppLayout>
                 <Switch>
-                    <Route exact path={"/"} component={Home}/>
-                    <Route path={"/detail/:id"} component={Detail}/>
-                    <Route path={"/genre"} component={Genre}/>
-                    <Route path={"/search"} component={Search}/>
-                    <Route path={"/member"} component={Member}/>
+                    <AnimatedSwitch
+                        atEnter={{ opacity: 0 }}
+                        atLeave={{ opacity: 0 }}
+                        atActive={{ opacity: 1 }}
+                        className="switch-wrapper"
+                    >
+                        <Route exact path={"/"} component={Home}/>
+                        <Route path={"/detail/:id"} component={Detail}/>
+                        <Route path={"/genre"} component={Genre}/>
+                        <Route path={"/search"} component={Search}/>
+                        <Route path={"/member"} component={Member}/>
+                    </AnimatedSwitch>
                 </Switch>
             </AppLayout>
         </ThemeProvider>
