@@ -1,10 +1,10 @@
-import {useEffect, useState} from "react";
+import {useEffect, useCallback, useState} from "react";
 import {userActions} from "../../../../redux/actionCreators";
 
 function SubmitController(Users, form, history, isLoggedIn) {
     const [isSuccessIn, setIsSuccessIn] = useState(false);
 
-    useEffect(() => {
+    useCallback(() => {
         if (isLoggedIn) {
             alert('이미 로그인된 회원입니다.');
             history.push("/");

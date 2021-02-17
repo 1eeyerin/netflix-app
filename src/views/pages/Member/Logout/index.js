@@ -21,7 +21,7 @@ function Logout({history}){
             history.push("/");
             return false;
         }
-    }, [isLoggedIn]);
+    }, []);
 
     return null;
 }
