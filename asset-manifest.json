@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/netflix-app/static/css/main.0f886d3d.chunk.css",
-    "main.js": "/netflix-app/static/js/main.1381d7c9.chunk.js",
-    "main.js.map": "/netflix-app/static/js/main.1381d7c9.chunk.js.map",
+    "main.css": "/netflix-app/static/css/main.b12f3fab.chunk.css",
+    "main.js": "/netflix-app/static/js/main.9e21efb6.chunk.js",
+    "main.js.map": "/netflix-app/static/js/main.9e21efb6.chunk.js.map",
     "runtime-main.js": "/netflix-app/static/js/runtime-main.54ba77de.js",
     "runtime-main.js.map": "/netflix-app/static/js/runtime-main.54ba77de.js.map",
     "static/css/2.9de9c891.chunk.css": "/netflix-app/static/css/2.9de9c891.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.55bfd435.chunk.js.map": "/netflix-app/static/js/2.55bfd435.chunk.js.map",
     "index.html": "/netflix-app/index.html",
     "static/css/2.9de9c891.chunk.css.map": "/netflix-app/static/css/2.9de9c891.chunk.css.map",
-    "static/css/main.0f886d3d.chunk.css.map": "/netflix-app/static/css/main.0f886d3d.chunk.css.map",
+    "static/css/main.b12f3fab.chunk.css.map": "/netflix-app/static/css/main.b12f3fab.chunk.css.map",
     "static/js/2.55bfd435.chunk.js.LICENSE.txt": "/netflix-app/static/js/2.55bfd435.chunk.js.LICENSE.txt",
     "static/media/app.scss": "/netflix-app/static/media/slick.c94f7671.ttf"
   },
@@ -18,7 +18,7 @@
     "static/js/runtime-main.54ba77de.js",
     "static/css/2.9de9c891.chunk.css",
     "static/js/2.55bfd435.chunk.js",
-    "static/css/main.0f886d3d.chunk.css",
-    "static/js/main.1381d7c9.chunk.js"
+    "static/css/main.b12f3fab.chunk.css",
+    "static/js/main.9e21efb6.chunk.js"
   ]
 }
