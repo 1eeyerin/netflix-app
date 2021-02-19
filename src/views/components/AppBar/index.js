@@ -16,7 +16,7 @@ function AppBar() {
                     <h1><Link to="/">Movie App</Link></h1>
                     <ul>
                         <li><Link to="/genre">Genre</Link></li>
-                        <li><Link to="/member/my-list">MyList</Link></li>
+                        {isLoggedIn && <li><Link to="/member/my-list">MyList</Link></li>}
                         <li><Link to="/search">Search</Link></li>
                     </ul>
                 </HeaderLeft>
