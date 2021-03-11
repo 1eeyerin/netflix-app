@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {userActions} from "../../../redux/actionCreators";
-import utils from "../../../utils";
+import {descendingSort} from "../../../utils/common";
 
 function DetailController(id, Movies, myList){
     const [isLiked, setIsLiked] = useState(false);
@@ -24,7 +24,7 @@ function DetailController(id, Movies, myList){
                 if(item.genres.indexOf(genreArr[i]) !== -1 && post.id !== item.id) return true;
             }
         });
-        const result = utils({name:"descending", item: otherPostResult, target:"rating"});
+        const result = descendingSort(otherPostResult, "rating");
 
         setIsLiked(likedListResult);
         setOtherPost(result);

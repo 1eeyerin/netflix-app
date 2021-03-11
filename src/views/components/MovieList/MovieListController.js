@@ -1,5 +1,5 @@
 import React from "react";
-import utils from "../../../utils";
+import {descendingSort} from "../../../utils/common";
 
 function MovieListController({Movies, myList, bestMovies}){
 
@@ -16,7 +16,7 @@ function MovieListController({Movies, myList, bestMovies}){
             result =  Movies.length && bestMovies.map(item => Movies.find(m => m.id === item));
         }
         if(sorting !== false) {
-            result = utils({name:"descending", item: result, target:"rating"});
+            result = descendingSort(result,"rating");
         }
 
         return result;

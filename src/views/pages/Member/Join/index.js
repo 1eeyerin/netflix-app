@@ -1,7 +1,7 @@
 import React from "react";
 import {Form} from 'antd';
 import {userActions} from "../../../../redux/actionCreators";
-import utils from "../../../../utils";
+import {guid} from "../../../../utils/common";
 import JoinForm from "./JoinForm";
 import {useSelector} from "react-redux";
 import SubmitController from "./SubmitController";
@@ -17,7 +17,7 @@ function Join({history}) {
 
     const storeDispatch = (obj) => userActions.addedUser(obj);
     const buildDispatch = (arg) => ({
-        id : utils({name:"guid"}),
+        id : guid(),
         userId : arg.id,
         userPassword : arg.password,
         nickname : arg.nickname,
