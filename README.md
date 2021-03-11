@@ -20,6 +20,7 @@
     "react-router-transition": "^2.1.0",
     "react-slick": "^0.28.0",
     "slick-carousel": "^1.8.1",
+    "react-google-login": "^5.2.2",
 ```
 
 ## 기능
