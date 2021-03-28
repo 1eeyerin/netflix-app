@@ -2,6 +2,7 @@ import React from "react";
 import {MainArea} from "../../../components/AppLayout/AppLayout.Styled";
 import MovieList from "../../../components/MovieList";
 import styled from "styled-components";
+import _ from "lodash";
 
 function MyMovieList(props){
     const {
@@ -11,7 +12,7 @@ function MyMovieList(props){
     return(
         <MainArea>
             {
-                isLoggedIn &&
+                (isLoggedIn && !_.isEmpty(myList)) &&
                 <MovieList
                     itemlistTitle={`${nickname}님이 좋아하는 컨텐츠`}
                     settings={settings}
