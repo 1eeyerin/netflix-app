@@ -21,7 +21,6 @@ function App(){
 
     useEffect(() => {
         if(!Movies.length) {
-            console.log('@@APP/GET_MOVIES');
             appActions.getMovies();
         }
     }, []);
@@ -40,7 +39,6 @@ function App(){
                         <Route exact path={"/"} component={Home}/>
                         <Route path={"/detail/:id"} component={Detail}/>
                         <Route path={"/genre"} component={Genre}/>
-                        <Route path={"/search"} component={Search}/>
                         <Route path={"/member"} component={Member}/>
                     </AnimatedSwitch>
                 </Switch>

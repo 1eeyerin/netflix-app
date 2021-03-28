@@ -16,11 +16,7 @@ function AppBar() {
     } = useSelector(state => state.user);
 
     const {signIn, signOut} = useAuth();
-    
-    useEffect(() => {
-        console.log('@@ loaded',loaded);
-    }, [loaded])
-    
+
     return (
         <Header>
             <HeaderWrap>
@@ -29,7 +25,6 @@ function AppBar() {
                     <ul>
                         <li><Link to="/genre">Genre</Link></li>
                         {isLoggedIn && <li><Link to="/member/my-list">MyList</Link></li>}
-                        <li><Link to="/search">Search</Link></li>
                     </ul>
                 </HeaderLeft>
                 <HeaderRight>
