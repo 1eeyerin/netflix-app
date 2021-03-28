@@ -8,7 +8,7 @@ function MovieList(props) {
     return(
         <List>
             <h2>{itemlistTitle}</h2>
-            {Boolean(item.length) && <MovieItem item={item} settings={settings} />}
+            <MovieItem item={item} settings={settings} />
         </List>
     )
 }

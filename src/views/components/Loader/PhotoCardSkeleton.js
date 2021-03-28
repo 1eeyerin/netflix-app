@@ -6,7 +6,10 @@ function PhotoCardSkeleton() {
 
   return (
     <Container>
-      <Thumb/>
+      <Photo>
+        <Thumb/>
+      </Photo>
+      <Text/>
     </Container>
   )
 }
@@ -16,19 +19,23 @@ const Container = styled.div`
   vertical-align: top;
   width: 185px;
   margin: 4px;
-
-  > span {
-    height: 0;
-    display: block;
-    padding-bottom: 150%;
-    position: relative;
-  }
 `
+
+const Photo = styled.div`
+  height: 0;
+  display: block;
+  padding-bottom: 150%;
+  position: relative;
+`
+
 const Thumb = styled(Skeleton)`
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
+`
+const Text = styled(Skeleton)`
+  margin-top: 10px;
 `
 
 

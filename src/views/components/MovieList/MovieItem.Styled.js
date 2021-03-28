@@ -16,6 +16,7 @@ export const ItemImage = styled.div`
   overflow: hidden;
   position: relative;
   padding-bottom: 150%;
+  background: #444;
 `
 
 export const ItemIMG = styled.img`
