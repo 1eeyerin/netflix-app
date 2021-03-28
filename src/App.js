@@ -4,7 +4,6 @@ import {Switch, Route} from "react-router-dom";
 import Home from "./views/pages/Home";
 import Detail from "./views/pages/Detail";
 import Genre from "./views/pages/Genre";
-import Search from "./views/pages/Search";
 import {useSelector} from "react-redux";
 import {appActions} from "./redux/actionCreators";
 import Member from "./views/pages/Member";

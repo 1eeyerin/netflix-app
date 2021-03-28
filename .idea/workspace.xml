@@ -2,15 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed47f77a-7e59-4d6d-8305-d69f7885015c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/views/components/Loader/PhotoListSkeleton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/components/AppBar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/components/AppBar/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/pages/Search/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/components/MovieList/MovieItem.Styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/components/MovieList/MovieItem.Styled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/components/MovieList/MovieItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/components/MovieList/MovieItem.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,7 +53,7 @@
       <workItem from="1616222555136" duration="40000" />
       <workItem from="1616472111863" duration="3565000" />
       <workItem from="1616499250775" duration="500000" />
-      <workItem from="1616914077187" duration="552000" />
+      <workItem from="1616914077187" duration="3632000" />
     </task>
     <servers />
   </component>
