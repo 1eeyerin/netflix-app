@@ -33,7 +33,7 @@ function AppBar() {
                         <ul>
                             {isLoggedIn ? (
                                 <>
-                                    <li><Link to="/member/profile">{nickname}님의 프로필</Link></li>
+                                    <li>{nickname}님</li>
                                     <li><Link to="/member/logout" onClick={signOut}>logout</Link></li>
                                 </>
                             ) : (
